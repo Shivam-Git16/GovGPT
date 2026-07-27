@@ -1,5 +1,4 @@
-import ReactMarkdown from "react-markdown";
-
+import { marked } from "marked";
 function ChatMessage({ sender, text }) {
 
     return (
@@ -20,14 +19,10 @@ function ChatMessage({ sender, text }) {
 
             <div style={{padding:"30px"}} className="bubble">
 
-                <ReactMarkdown>
+                 dangerouslySetInnerHTML={{
+    __html: marked(text),
+  }}
 
-                    {text}
-
-                </ReactMarkdown>
-{/* <span>
-    {new Date(Date.now())}
-</span> */}
             </div>
 
         </div>
